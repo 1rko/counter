@@ -7,9 +7,7 @@ import {Button} from "../../Counter/button/Button.tsx";
 type Props = {
     maxCount: number
     minCount: number
-    isActivate: boolean
     onSetActivate: () => void
-    onSetDeactivate: () => void
     onApplySettings: (maxCount: number, minCount: number) => void
     setLocalStorage: (max: number, min: number) => void
     error: string | null
@@ -20,9 +18,7 @@ export const CounterSettingsMini = (props: Props) => {
     const {
         maxCount,
         minCount,
-        isActivate,
         onSetActivate,
-        onSetDeactivate,
         onApplySettings,
         setLocalStorage,
         error,

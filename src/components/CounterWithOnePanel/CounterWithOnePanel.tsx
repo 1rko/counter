@@ -24,10 +24,6 @@ export const CounterWithOnePanel = () => {
         setIsSetModeActivate(true)
     }
 
-    const onSetDeactivate = () => {
-        setIsSetModeActivate(false)
-    }
-
     const onApplySettings = (maxCount: number, minCount: number) => {
         if (!error) {
             setError(null)
@@ -61,9 +57,7 @@ export const CounterWithOnePanel = () => {
             счетчик с одной панелью
             {isSetModeActivate ? <CounterSettingsMini maxCount={maxCount}
                                                   minCount={minCount}
-                                                  isActivate={isSetModeActivate}
                                                   onSetActivate={onSetActivate}
-                                                  onSetDeactivate={onSetDeactivate}
                                                   onApplySettings={onApplySettings}
                                                   error={error}
                                                   onError={onError}
