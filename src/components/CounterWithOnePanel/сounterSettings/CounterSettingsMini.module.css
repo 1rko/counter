@@ -1,0 +1,38 @@
+.counter {
+    width: 500px;
+    min-height: 400px;
+    border: 2px solid #1ea7fd;
+    border-radius: 5px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 34px;
+    gap: 20px;
+}
+
+.buttons_panel {
+    padding: 30px;
+    border: 2px solid #1ea7fd;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow: 1;
+    gap: 20px;
+}
+
+.inputFlexWrapper {
+    display: flex;
+    flex-direction: column;
+}
+
+.inputTitle{
+    color: #1ea7fd;
+}
+
+.error{
+    color: red;
+    font-size: 20px;
+}

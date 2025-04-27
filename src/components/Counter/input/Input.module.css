@@ -1,0 +1,17 @@
+.input {
+    border: 2px solid #1ea7fd;
+    color: #1ea7fd;
+    background-color: #0f183a;
+    border-radius: 5px;
+    height: 30px;
+    padding: 5px 15px;
+    font-size: 20px;
+    width: 200px;
+    text-align: right;
+}
+
+.error{
+    background-color: indianred;
+    color: black;
+    border: 2px solid red;
+}
