@@ -2,7 +2,7 @@
   "name": "counter",
   "private": true,
   "version": "0.0.0",
-  "homepage": "https://github.com/1rko/counter",
+  "homepage": "https://1rko.github.io/counter/",
   "type": "module",
   "scripts": {
     "dev": "vite",
