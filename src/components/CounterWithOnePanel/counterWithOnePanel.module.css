@@ -1,4 +1,48 @@
-.counter{
+.counter {
+    padding: 20px;
     display: flex;
-    gap: 40px;
+    justify-content: center;
+    perspective: 1000px;
+    min-height: 500px;;
+}
+
+.oneSide {
+    position: absolute;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    opacity: 1;
+    animation: rotateRight 2s;
+}
+
+.hiddenSide {
+    position: absolute;
+    transform: rotateY(180deg) skew(0);
+    backface-visibility: hidden;
+    opacity: 0;
+    animation: rotateLeft 2s;
+    z-index: -10;
+}
+
+@keyframes rotateRight {
+    0% {
+        transform: rotateY(180deg);
+        opacity: 0;
+    }
+
+    100% {
+        transform: rotateY(0) ;
+        opacity: 1;
+    }
+}
+
+@keyframes rotateLeft {
+    0% {
+        transform: rotateY(0);
+        opacity: 1;
+    }
+
+    100% {
+        transform: rotateY(-180deg) ;
+        opacity: 0;
+    }
 }

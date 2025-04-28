@@ -49,11 +49,17 @@ export const CounterWithTwoPanels = () => {
     }
 
     function getMaxFromLocalStorage ()  {
-        return JSON.parse(localStorage.getItem("maxCount") as string)
+        if (localStorage.getItem("maxCount")) {
+            return JSON.parse(localStorage.getItem("maxCount") as string)
+        }
+        else return 5        //default значение? при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
     }
 
     function getMinFromLocalStorage ()  {
-        return JSON.parse(localStorage.getItem("minCount") as string)
+        if (localStorage.getItem("minCount")) {
+            return JSON.parse(localStorage.getItem("minCount") as string)
+        }
+        else return 0       //default значение? при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
     }
 
     return (

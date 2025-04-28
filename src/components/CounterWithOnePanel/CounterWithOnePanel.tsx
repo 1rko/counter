@@ -45,31 +45,38 @@ export const CounterWithOnePanel = () => {
     }
 
     function getMaxFromLocalStorage() {
-        return JSON.parse(localStorage.getItem("maxCount") as string)
+        if (localStorage.getItem("maxCount")) {
+            return JSON.parse(localStorage.getItem("maxCount") as string)
+        } else return 5       //default значение? при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
     }
 
     function getMinFromLocalStorage() {
-        return JSON.parse(localStorage.getItem("minCount") as string)
+        if (localStorage.getItem("minCount")) {
+            return JSON.parse(localStorage.getItem("minCount") as string)
+        } else return 0       //default значение? при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
     }
 
     return (
         <div className={styles.counter}>
-            счетчик с одной панелью
-            {isSetModeActivate ? <CounterSettingsMini maxCount={maxCount}
-                                                  minCount={minCount}
-                                                  onSetActivate={onSetActivate}
-                                                  onApplySettings={onApplySettings}
-                                                  error={error}
-                                                  onError={onError}
-                                                  setLocalStorage={setLocalStorage}
-            /> : <CounterDisplayMini countValue={countValue}
-                                 maxCount={maxCount}
-                                 minCount={minCount}
-                                 onIncrement={onIncrement}
-                                 onReset={onReset}
-                                 onSetActivateMode={onSetActivate}
-            />}
-
+            <div className={!isSetModeActivate ? styles.oneSide : styles.hiddenSide}>
+                <CounterDisplayMini countValue={countValue}
+                                    maxCount={maxCount}
+                                    minCount={minCount}
+                                    onIncrement={onIncrement}
+                                    onReset={onReset}
+                                    onSetActivateMode={onSetActivate}
+                />
+            </div>
+            <div className={isSetModeActivate ? styles.oneSide : styles.hiddenSide}>
+                <CounterSettingsMini maxCount={maxCount}
+                                     minCount={minCount}
+                                     onSetActivate={onSetActivate}
+                                     onApplySettings={onApplySettings}
+                                     error={error}
+                                     onError={onError}
+                                     setLocalStorage={setLocalStorage}
+                />
+            </div>
         </div>
     );
 };
