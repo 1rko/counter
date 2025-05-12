@@ -1,8 +1,8 @@
 import styles from "./CounterSettingsMini.module.css";
 import {ChangeEvent, useState} from "react";
-import {Panel} from "../../Counter/panel/Panel.tsx";
-import {Input} from "../../Counter/input/Input.tsx";
-import {Button} from "../../Counter/button/Button.tsx";
+import {Panel} from "../../CounterWithTwoPanels/panel/Panel.tsx";
+import {Input} from "../../CounterWithTwoPanels/input/Input.tsx";
+import {Button} from "../../CounterWithTwoPanels/button/Button.tsx";
 
 type Props = {
     maxCount: number
@@ -30,28 +30,28 @@ export const CounterSettingsMini = (props: Props) => {
 
     const onChangeMaxHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onSetActivate()
-        if (Number(e.currentTarget.value) <= minTemp) {
+        if (+e.currentTarget.value <= minTemp) {
             onError('the maximum value should be greater than the minimum')
         } else {
             onError(null)
             onSetActivate()
         }
-        setMaxTemp(Number(e.currentTarget.value))
+        setMaxTemp(+e.currentTarget.value)
     }
 
     const onChangeMinHandler = (e: ChangeEvent<HTMLInputElement>) => {
         onSetActivate()
-        if (Number(e.currentTarget.value) >= maxTemp) {
+        if (+e.currentTarget.value >= maxTemp) {
             onError('the maximum value should be greater than the minimum')
 
-        } else if (Number(e.currentTarget.value) < 0) {
+        } else if (+e.currentTarget.value < 0) {
             onError('the value should be greater then 0')
 
         } else {
             onError(null)
             onSetActivate()
         }
-        setMinTemp(Number(e.currentTarget.value))
+        setMinTemp(+e.currentTarget.value)
     }
 
     const onApplySettingsHandler = () => {

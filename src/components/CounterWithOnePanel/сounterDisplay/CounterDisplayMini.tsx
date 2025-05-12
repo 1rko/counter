@@ -1,7 +1,7 @@
 import styles from './CounterDisplayMini.module.css'
 import {Display} from "./Tablo/Display.tsx";
-import {Panel} from "../../Counter/panel/Panel.tsx";
-import {Button} from "../../Counter/button/Button.tsx";
+import {Panel} from "../../CounterWithTwoPanels/panel/Panel.tsx";
+import {Button} from "../../CounterWithTwoPanels/button/Button.tsx";
 
 type Props = {
     countValue: number

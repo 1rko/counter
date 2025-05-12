@@ -1,3 +1,6 @@
+button{
+    cursor: pointer;
+}
 
 .controlButton{
     background-color: #1ea7fd;
@@ -8,4 +11,5 @@
 
 .disabledButton{
     opacity: 0.3;
+    cursor: auto;
 }

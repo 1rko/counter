@@ -6,6 +6,24 @@
     min-height: 500px;;
 }
 
+/*.oneSide {
+    position: absolute;
+    transform-style: preserve-3d;
+    backface-visibility: hidden;
+    opacity: 1;
+    transform: rotateY(0deg);
+    transition: transform 2s ease, opacity 2s ease;
+}
+
+.hiddenSide {
+    position: absolute;
+    transform: rotateY(180deg);
+    backface-visibility: hidden;
+    opacity: 0;
+    transition: transform 2s ease, opacity 2s ease;
+    z-index: -10;
+}*/
+
 .oneSide {
     position: absolute;
     transform-style: preserve-3d;

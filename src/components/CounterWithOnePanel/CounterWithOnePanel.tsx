@@ -28,9 +28,9 @@ export const CounterWithOnePanel = () => {
         if (!error) {
             setError(null)
             setIsSetModeActivate(false)
-            setLocalStorage(Number(maxCount), Number(minCount))
-            setMaxCount(Number(maxCount))
-            setMinCount(Number(minCount))
+            setLocalStorage(+maxCount, +minCount)
+            setMaxCount(+maxCount)
+            setMinCount(+minCount)
             setCountValue(minCount)
         }
     }
@@ -47,13 +47,13 @@ export const CounterWithOnePanel = () => {
     function getMaxFromLocalStorage() {
         if (localStorage.getItem("maxCount")) {
             return JSON.parse(localStorage.getItem("maxCount") as string)
-        } else return 5       //default значение? при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
+        } else return 5       //5 - default значение, при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
     }
 
     function getMinFromLocalStorage() {
         if (localStorage.getItem("minCount")) {
             return JSON.parse(localStorage.getItem("minCount") as string)
-        } else return 0       //default значение? при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
+        } else return 0       //0 - default значение, при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
     }
 
     return (
