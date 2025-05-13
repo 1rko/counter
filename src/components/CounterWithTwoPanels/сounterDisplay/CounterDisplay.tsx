@@ -39,7 +39,7 @@ export const CounterDisplay = (props: Props) => {
                     value={countValue.toString()}
                     isMax={isMax}/>
                 }
-                {error && <Display
+                {!!error && <Display
                     value={error}
                     isMax={isMax}/>
                 }

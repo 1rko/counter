@@ -2,11 +2,12 @@ import {CounterSettings} from "./сounterSettings/CounterSettings.tsx";
 import {CounterDisplay} from "./сounterDisplay/CounterDisplay.tsx";
 import styles from './сounterWithTwoPanels.module.css'
 import {useState} from "react";
+import {getMaxFromLocalStorage, getMinFromLocalStorage} from "../../utils/utils.ts";
 
 export const CounterWithTwoPanels = () => {
-    const [countValue, setCountValue] = useState(getMinFromLocalStorage())
-    const [maxCount, setMaxCount] = useState(getMaxFromLocalStorage())
-    const [minCount, setMinCount] = useState(getMinFromLocalStorage())
+    const [countValue, setCountValue] = useState(getMinFromLocalStorage)//Передаем просто как функцию, чтобы при
+    const [maxCount, setMaxCount] = useState( getMaxFromLocalStorage)//каждом ререндере функция не вызывалась
+    const [minCount, setMinCount] = useState( getMinFromLocalStorage)
     const [isSetModeActivate, setIsSetModeActivate] = useState(false)
     const [error, setError] = useState<string | null>(null)
 
@@ -46,20 +47,6 @@ export const CounterWithTwoPanels = () => {
     const setLocalStorage = (max: number, min: number) => {
         localStorage.setItem("maxCount", JSON.stringify(max))
         localStorage.setItem("minCount", JSON.stringify(min))
-    }
-
-    function getMaxFromLocalStorage ()  {
-        if (localStorage.getItem("maxCount")) {
-            return JSON.parse(localStorage.getItem("maxCount") as string)
-        }
-        else return 5        //default значение? при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
-    }
-
-    function getMinFromLocalStorage ()  {
-        if (localStorage.getItem("minCount")) {
-            return JSON.parse(localStorage.getItem("minCount") as string)
-        }
-        else return 0       //default значение? при первичной загрузке страницы(т.к. localStorage.getItem("maxCount")==null)
     }
 
     return (
